@@ -1,3 +1,3 @@
-# Curso PHP I: Orientação a objetos com sua linguagem preferida
+# Curso PHP II: Avançando com Orientação a objetos
 
-Este repositório mantém o código desenvolvido no [curso PHP I: Orientação a objetos com sua linguagem preferida](https://cursos.alura.com.br/course/php-oo-1) da [Alura](https://www.alura.com.br).
+Este repositório mantém o código desenvolvido no [curso PHP II: Avançando com Orientação a objetos](https://cursos.alura.com.br/course/php-oo-2) da [Alura](https://www.alura.com.br).
