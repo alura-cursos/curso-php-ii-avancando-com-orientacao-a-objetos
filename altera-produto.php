@@ -1,26 +1,26 @@
 <?php
 require_once("cabecalho.php");
+require_once("banco-produto.php");
+require_once("class/Produto.php");
+require_once("class/Categoria.php");
 
-$tipoProduto = $_POST['tipoProduto'];
-$produto_id = $_POST['id'];
-$categoria_id = $_POST['categoria_id'];
+$categoria = new Categoria();
+$categoria->setId($_POST['categoria_id']);
 
-$factory = new ProdutoFactory();
-$produto = $factory->criaPor($tipoProduto, $_POST);
-$produto->atualizaBaseadoEm($_POST);
-
-$produto->setId($produto_id);
-$produto->getCategoria()->setId($categoria_id);
+$nome = $_POST['nome'];
+$preco = $_POST['preco'];
+$descricao = $_POST['descricao'];
 
 if(array_key_exists('usado', $_POST)) {
-	$produto->setUsado("true");
+	$usado = "true";
 } else {
-	$produto->setUsado("false");
+	$usado = "false";
 }
 
-$produtoDao = new ProdutoDao($conexao);
+$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+$produto->setId($_POST['id']);
 
-if($produtoDao->alteraProduto($produto)) { ?>
+if(alteraProduto($conexao, $produto)) { ?>
 	<p class="text-success">O produto <?= $produto->getNome() ?>, <?= $produto->getPreco() ?> foi alterado.</p>
 <?php 
 } else {

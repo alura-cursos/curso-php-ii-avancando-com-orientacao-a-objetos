@@ -1,12 +1,11 @@
 <?php
 require_once("cabecalho.php");
-
-$produtoDao = new ProdutoDao($conexao);
-$categoriaDao = new CategoriaDao($conexao);
+require_once("banco-categoria.php");
+require_once("banco-produto.php");
 
 $id = $_GET['id'];
-$produto = $produtoDao->buscaProduto($id);
-$categorias = $categoriaDao->listaCategorias();
+$produto = buscaProduto($conexao, $id);
+$categorias = listaCategorias($conexao);
 
 $selecao_usado = $produto->isUsado() ? "checked='checked'" : "";
 $produto->setUsado($selecao_usado);

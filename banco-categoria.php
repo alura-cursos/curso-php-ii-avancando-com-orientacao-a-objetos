@@ -1,5 +1,6 @@
 <?php
 require_once("conecta.php");
+require_once("class/Categoria.php");
 
 function listaCategorias($conexao) {
 

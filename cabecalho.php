@@ -1,14 +1,6 @@
 <?php
-
-function carregaClasse($nomeDaClasse) {
-	require_once("class/".$nomeDaClasse.".php");
-}
-
-spl_autoload_register("carregaClasse");
-
 error_reporting(E_ALL ^ E_NOTICE);
-require_once("mostra-alerta.php");
-require_once("conecta.php"); ?>
+require_once("mostra-alerta.php"); ?>
 <html>
 <head>
 	<meta charset="utf-8">
