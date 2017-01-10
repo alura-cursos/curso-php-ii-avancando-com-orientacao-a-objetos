@@ -25,7 +25,6 @@ class CategoriaDao {
 
 		return $categorias;
 	}
-
 }
 
 ?>
